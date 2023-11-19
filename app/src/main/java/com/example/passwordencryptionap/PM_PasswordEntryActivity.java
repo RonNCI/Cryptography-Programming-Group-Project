@@ -36,7 +36,7 @@ public class PM_PasswordEntryActivity extends AppCompatActivity {
                     String login = loginEditText.getText().toString();
                     //Encrypts the users password by calling encrypt method from PM_EncryptionActivity encrypt()
                     String password = PM_EncryptionActivity.encrypt(passwordEditText.getText().toString(), secretKey);
-                    String description = (descriptionEditText.getText().toString();
+                    String description = descriptionEditText.getText().toString();
 
                     //Encrypts the users password by calling encrypt method from PM_EncryptionActivity encrypt()
 
