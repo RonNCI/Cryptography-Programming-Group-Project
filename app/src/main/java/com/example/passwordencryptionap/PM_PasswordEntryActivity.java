@@ -16,11 +16,11 @@ public class PM_PasswordEntryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password_entry);
 
-        // Initialize or retrieve your AES key here
+        //calls key generation method
         try {
-            secretKey = PM_EncryptionActivity.generateKey(); // In a real app, manage this key securely
+            secretKey = PM_EncryptionActivity.generateKey();
         } catch (Exception e) {
-            e.printStackTrace(); // Handle exceptions properly
+            e.printStackTrace();
         }
 
         final EditText loginEditText = findViewById(R.id.loginEditText);
@@ -32,22 +32,26 @@ public class PM_PasswordEntryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    // Get the entered values and encrypt them
-                    String login = PM_EncryptionActivity.encrypt(loginEditText.getText().toString(), secretKey);
+                    // Get the password through .getTest and encrypts the password
+                    String login = loginEditText.getText().toString();
+                    //Encrypts the users password by calling encrypt method from PM_EncryptionActivity encrypt()
                     String password = PM_EncryptionActivity.encrypt(passwordEditText.getText().toString(), secretKey);
-                    String description = PM_EncryptionActivity.encrypt(descriptionEditText.getText().toString(), secretKey);
+                    String description = (descriptionEditText.getText().toString();
 
-                    // Create a new PasswordEntry with encrypted data
+                    //Encrypts the users password by calling encrypt method from PM_EncryptionActivity encrypt()
+
+
+
                     PM_PasswordEntry newEntry = new PM_PasswordEntry(login, password, description);
 
                     // Return the new entry to the MainMenu activity
                     Intent resultIntent = new Intent();
                     resultIntent.putExtra("newEntry", newEntry);
                     setResult(RESULT_OK, resultIntent);
-                    finish(); // Close the PasswordEntry activity
+                    finish(); // Closes the PasswordEntry activity
                 } catch (Exception e) {
-                    e.printStackTrace(); // Handle encryption exceptions
-                    // Optionally, show a user-friendly error message
+                    e.printStackTrace(); //Throws exceptions
+
                 }
             }
         });
